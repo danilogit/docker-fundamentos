@@ -1,0 +1,50 @@
+FROM exemplo6
+
+# SHELL [ "/bin/bash" ]
+
+# Tudo é passado como parametro para o ENTRYPOINT
+
+
+#CMD ["cat", "-n", "/var/log/bootstrap.log"]
+#CMD ["cat -n  /var/log/bootstrap.log"] 
+#CMD "cat -n /var/log/bootstrap.log"
+#CMD cat -n /var/log/bootstrap.log
+
+# -----------------------------------------------------------
+
+# ENTRYPOINT ["/bin/bash", "-c"]
+
+# Passa primeiro valor do array para o ENTRYPOINT
+
+# nada
+#CMD ["cat", "-n", "/var/log/bootstrap.log"]
+
+# ok
+#CMD ["cat -n  /var/log/bootstrap.log"] 
+
+# nada
+#CMD "cat -n /var/log/bootstrap.log"
+
+# nada
+#CMD cat -n /var/log/bootstrap.log
+
+
+# -----------------------------------------------------------
+
+ #ENTRYPOINT []
+
+
+# ok, primeiro valor é um executavel, nao usa o SHELL
+#CMD ["cat", "-n", "/var/log/bootstrap.log"]
+
+# erro , passa parametro pra vazio, como parametro de entrypoint vazio
+#CMD ["cat -n /var/log/bootstrap.log"] 
+
+# nada, not found, ente string como um unico executavel, processa pelo SHELL
+#CMD "cat -n /var/log/bootstrap.log"
+
+#ok, processa pelo SHELL
+#CMD "/bin/cat" -n /var/log/bootstrap.log
+
+# ok, processa pelo SHELL
+#CMD cat -n /var/log/bootstrap.log

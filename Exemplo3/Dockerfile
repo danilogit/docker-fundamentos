@@ -1,3 +1,3 @@
 FROM nginx:latest
 
-ADD https://github.com/danilogit/docker-fundamentos/raw/master/Exemplo3/html.tar.xz /usr/share/nginx/
+ADD https://raw.githubusercontent.com/danilogit/docker-fundamentos/master/Exemplo3/html/index.html /usr/share/nginx/html/
